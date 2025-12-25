@@ -21,7 +21,7 @@ CREATE TABLE Article (
     titre VARCHAR(200) NOT NULL,
     contenu TEXT NOT NULL,
     date_publication DATE NOT NULL,
-    statut ENUM('publié', 'brouillon'),
+    statut ENUM('publié', 'brouillon') DEFAULT 'brouillon',
     id_utilisateur INT NOT NULL,
     id_categorie INT NOT NULL,
     FOREIGN KEY (id_utilisateur) REFERENCES Utilisateur(id_utilisateur) ,
