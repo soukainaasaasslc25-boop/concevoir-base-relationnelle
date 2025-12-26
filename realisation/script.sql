@@ -1,7 +1,7 @@
 
 
-CREATE DATABASE IF NOT EXISTS fleur_blog
-    CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE  fleur_blog
+    
 
 USE fleur_blog;
 
