@@ -1,9 +1,9 @@
 
 
-CREATE DATABASE  fleur_blog
+CREATE DATABASE  fleurblog;
     
 
-USE fleur_blog;
+USE fleurblog;
 
 
 CREATE TABLE users (
@@ -30,12 +30,11 @@ CREATE TABLE posts (
     status ENUM('publié', 'brouillon') ,
     image_url VARCHAR(255),                  
     id_user INT NOT NULL,                    
-    id_category INT NOT NULL,               
+    id_category INT NULL ,               
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    
-    FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE,
-    FOREIGN KEY (id_category) REFERENCES categories(id_category) ON DELETE SET NULL
+   
+    FOREIGN KEY (id_user) REFERENCES users(id_user) ,
+    FOREIGN KEY (id_category) REFERENCES categories(id_category) 
 );
 
 
@@ -44,10 +43,10 @@ CREATE TABLE comments (
     content TEXT NOT NULL,
     comment_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     id_post INT NOT NULL,
-    id_user INT NOT NULL,                    -- Un commentaire = un seul utilisateur
+    id_user INT NOT NULL,                    
     
-    FOREIGN KEY (id_post) REFERENCES posts(id_post) ON DELETE CASCADE,
-    FOREIGN KEY (id_user) REFERENCES users(id_user) ON DELETE CASCADE
+    FOREIGN KEY (id_post) REFERENCES posts(id_post),
+    FOREIGN KEY (id_user) REFERENCES users(id_user) 
 );
 
 
@@ -85,3 +84,4 @@ DESCRIBE posts;
 DESCRIBE comments;
 
 SELECT 'Base de données fleur_blog créée avec succès ! 🌷' AS Message;
+select * from fleurblog.posts;
